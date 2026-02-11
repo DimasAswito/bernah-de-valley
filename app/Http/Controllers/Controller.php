@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+class Controller
 {
-    //
+    public function index()
+    {
+        return view('page.index');
+    }
 }
