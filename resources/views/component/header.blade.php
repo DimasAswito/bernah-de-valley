@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{ asset('img/icon.png') }}" style="max-height: 60px;" alt="logo"> 
         {{-- <h1 class="sitename">Kelly</h1> --}}
@@ -9,11 +9,11 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">Berita</a></li>
-          <li><a href="resume.html">Wahana</a></li>
-          <li><a href="services.html">Galeri</a></li>
-          <li><a href="portfolio.html">Kritik & Saran</a></li>
+          <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+          <li><a href="#" style="cursor: not-allowed;">Berita</a></li>
+          <li><a href="/wahana" class="{{ request()->is('wahana*') ? 'active' : '' }}">Wahana</a></li>
+          <li><a href="/galeri" class="{{ request()->is('galeri*') ? 'active' : '' }}">Galeri</a></li>
+          <li><a href="/kritik-saran" class="{{ request()->is('kritik-saran*') ? 'active' : '' }}">Kritik & Saran</a></li>
           {{-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
