@@ -6,8 +6,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio Details</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Detail Wahana</h2>
+        <p>{{ $wahana->nama }}</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -36,19 +36,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
+                  <img src="{{ Storage::url($wahana->gambar) }}" alt="{{ $wahana->nama }}">
                 </div>
 
               </div>
@@ -58,18 +46,18 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
+              <h3>Informasi Wahana</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Status</strong>: <span class="badge bg-{{ $wahana->status == 'aktif' ? 'success' : ($wahana->status == 'maintenance' ? 'warning' : 'danger') }}">{{ ucfirst($wahana->status) }}</span></li>
+                <li><strong>Harga Tiket</strong>: Rp {{ number_format($wahana->harga_tiket, 0, ',', '.') }}</li>
+                <li><strong>Jam Operasional</strong>: {{ \Carbon\Carbon::parse($wahana->jam_buka)->format('H:i') }} - {{ \Carbon\Carbon::parse($wahana->jam_tutup)->format('H:i') }}</li>
+                <li><strong>Kapasitas</strong>: {{ $wahana->kapasitas ? $wahana->kapasitas . ' Orang' : 'Tidak Dibatasi' }}</li>
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
+              <h2>Deskripsi Wahana</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                {!! nl2br(e($wahana->deskripsi)) !!}
               </p>
             </div>
           </div>

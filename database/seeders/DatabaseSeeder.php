@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Galeri;
 use App\Models\User;
+use App\Models\Wahana;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,5 +23,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        Wahana::factory()->count(5)->create();
+
+        $kategoris = ['wahana', 'fasilitas', 'kegiatan', 'umum'];
+        foreach ($kategoris as $kat) {
+            Galeri::factory()->count(3)->create(['kategori' => $kat]);
+        }
     }
 }

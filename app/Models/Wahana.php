@@ -10,6 +10,7 @@ class Wahana extends Model
     use HasFactory;
 
     protected $table = 'wahana';
+
     protected $fillable = [
         'nama',
         'slug',

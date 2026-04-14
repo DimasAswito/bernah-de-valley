@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class WahanaController extends Controller
 {
     public function index()
     {
-        return view('page.facility');
+        $wahanas = \App\Models\Wahana::all();
+        return view('page.facility', compact('wahanas'));
     }
 
     public function detail($id)
     {
-        return view('page.facility_detail', compact('id'));
+        $wahana = \App\Models\Wahana::findOrFail($id);
+        return view('page.facility_detail', compact('wahana'));
     }
 }

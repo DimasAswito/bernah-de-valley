@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\Controller;
-
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\WahanaController;
 use App\Http\Controllers\KritikSaranController;
+use App\Http\Controllers\WahanaController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Controller::class, 'index']);
 Route::get('/wahana', [WahanaController::class, 'index']);

@@ -10,6 +10,7 @@ class KritikSaran extends Model
     use HasFactory;
 
     protected $table = 'kritik_saran';
+
     protected $fillable = [
         'nama',
         'email',
